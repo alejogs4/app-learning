@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">Edukt</string>
+    <string
+        name="app_name"
+        translatable="false">Edukt
+    </string>
+
+    <string
+        name="btn_main_teacher"
+        translatable="true"
+        >Soy Profesor
+    </string>
+
+    <string
+        name="btn_main_student"
+        translatable="true"
+        >Soy Estudiante
+    </string>
+
 </resources>
