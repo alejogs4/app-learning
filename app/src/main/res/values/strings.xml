@@ -1,19 +1,14 @@
 <resources>
-    <string
-        name="app_name"
-        translatable="false">Edukt
+    <string name="app_name" translatable="false">EduKT
     </string>
 
-    <string
-        name="btn_main_teacher"
-        translatable="true"
-        >Soy Profesor
+    <string name="btn_main_teacher" translatable="true">Soy Profesor
     </string>
 
-    <string
-        name="btn_main_student"
-        translatable="true"
-        >Soy Estudiante
+    <string name="btn_main_student" translatable="true">Soy Estudiante
     </string>
 
+    <string name="tv_main_login" translatable="true">Ya tengo una cuenta/Iniciar sesión</string>
+
+    <string name="toolbar_text">EduKT</string>
 </resources>

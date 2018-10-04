@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_inicio"
-    tools:context=".Activities.MainActivity">
+    tools:context=".activities.MainActivity">
 
 
     <Button
@@ -21,6 +21,7 @@
         android:text="@string/btn_main_teacher"
         android:textColor="#fff"
         android:textStyle="bold"
+        android:onClick="onClickButtonSignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,9 +37,28 @@
         android:background="@drawable/button_style2"
         android:textColor="#555"
         android:textStyle="bold"
+        android:onClick="onClickButtonSignUp"
         android:text="@string/btn_main_student"
         app:layout_constraintEnd_toEndOf="@+id/btn_im_teacher"
         app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="@+id/btn_im_teacher"
         app:layout_constraintTop_toBottomOf="@+id/btn_im_teacher" />
+
+    <TextView
+        android:id="@+id/tv_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/tv_main_login"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:onClick="onClickButtonLogIn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_im_student"
+        app:layout_constraintVertical_bias="0.064" />
 </android.support.constraint.ConstraintLayout>
