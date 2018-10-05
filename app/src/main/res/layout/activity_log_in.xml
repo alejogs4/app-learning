@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_activity1"
     tools:context=".activities.LogIn">
 
     <android.support.v7.widget.Toolbar
@@ -34,7 +35,6 @@
                 <View
                     android:background="#fff"
                     android:layout_width="match_parent"
-                    android:layout_marginRight="30dp"
                     android:layout_marginEnd="30dp"
                     android:layout_height="2dp" />
             </LinearLayout>
@@ -43,4 +43,5 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <!--TODO: Aplicar diseños con material design-->
 </android.support.constraint.ConstraintLayout>

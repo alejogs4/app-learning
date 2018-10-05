@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name" translatable="false">EduKT
     </string>
 
@@ -11,4 +12,8 @@
     <string name="tv_main_login" translatable="true">Ya tengo una cuenta/Iniciar sesión</string>
 
     <string name="toolbar_text">EduKT</string>
+
+    <string name="label_form_fullname">Nombre completo:</string>
+    <string name="label_form_email">Correo electrónico:</string>
+
 </resources>

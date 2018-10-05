@@ -14,9 +14,10 @@ public class MainActivity extends AppCompatActivity {
     //Components
     private Button btnImTeacher;
     private Button btnImStudent;
-
     private Petition petition = Petition.getInstance();
 
+    //Variables
+    public static String userType;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +31,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickButtonSignUp(View v) {
-        startActivity(new Intent(getApplicationContext(),SignUp.class));
+        Intent intent = new Intent(getApplicationContext(),SignUp.class);
+        if(v.getId() == btnImTeacher.getId())
+            userType = "Bienvenido Profesor";
+        else
+            userType = "Bienvenido Estudiante";
+
+        intent.putExtra("userType",userType);
+        startActivity(intent);
     }
 
     public void onClickButtonLogIn(View v) {
-        startActivity(new Intent(getApplicationContext(), LogIn.class));
+        Intent intent = new Intent(this, LogIn.class);
+        startActivity(intent);
     }
 }
