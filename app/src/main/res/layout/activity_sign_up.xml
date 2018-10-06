@@ -8,63 +8,31 @@
     app:layout_constrainedHeight="true"
     tools:context=".activities.SignUp">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
+    <include
+        layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:textColor="#fff"
-                    android:text="@string/app_name"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <View
-                    android:background="#fff"
-                    android:layout_width="match_parent"
-                    android:layout_marginEnd="30dp"
-                    android:layout_height="2dp" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </android.support.v7.widget.Toolbar>
+        android:layout_height="wrap_content"
+        />
 
     <TextView
         android:id="@+id/tv_user_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:textSize="20sp"
+        android:layout_marginBottom="8dp"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="395dp"
-        android:layout_height="415dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="449dp"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_type">
+        app:layout_constraintStart_toStartOf="parent">
 
         <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -112,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/label_form_birthdate"
-                    android:inputType="date"/>
+                    android:inputType="date" />
 
             </android.support.design.widget.TextInputLayout>
         </android.support.v7.widget.LinearLayoutCompat>

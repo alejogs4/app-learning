@@ -7,41 +7,11 @@
     android:background="@drawable/background_activity1"
     tools:context=".activities.LogIn">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
+    <include
+        layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:textColor="#fff"
-                    android:text="@string/app_name"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <View
-                    android:background="#fff"
-                    android:layout_width="match_parent"
-                    android:layout_marginEnd="30dp"
-                    android:layout_height="2dp" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </android.support.v7.widget.Toolbar>
+        android:layout_height="wrap_content"
+        />
 
     <TextView
         android:id="@+id/textView"
@@ -51,8 +21,9 @@
         android:text="@string/login_msg"
         android:textSize="40sp"
         android:textStyle="bold"
+        android:textColor="#ddd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -128,7 +99,7 @@
         android:text="@string/login_button"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
