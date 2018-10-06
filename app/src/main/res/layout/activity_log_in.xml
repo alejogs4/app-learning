@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/app_toolbar" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -39,8 +39,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:src="@drawable/user_icon" />
 
         <android.support.design.widget.TextInputLayout
@@ -71,8 +71,8 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:src="@drawable/unchecked_password_icon" />
 
         <android.support.design.widget.TextInputLayout
@@ -92,6 +92,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_login"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
