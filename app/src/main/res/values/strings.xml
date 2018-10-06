@@ -13,7 +13,14 @@
 
     <string name="toolbar_text">EduKT</string>
 
-    <string name="label_form_fullname">Nombre completo:</string>
-    <string name="label_form_email">Correo electrónico:</string>
+    <string name="login_msg">Inicia Sesión</string>
+
+    <string name="user_email_login">Ingresa tu email...</string>
+    <string name="user_password_login">Ingresa tu contraseña...</string>
+    <string name="login_button">INICIAR SESIÓN</string>
+
+    <string name="label_form_fullname">Nombre completo...</string>
+    <string name="label_form_email">Correo electrónico...</string>
+    <string name="label_form_birthdate">Fecha de nacimiento...</string>
 
 </resources>
