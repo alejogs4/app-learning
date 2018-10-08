@@ -7,8 +7,10 @@ public class Petition {
      * Libreria retrofit para consultar la API
      */
     private Retrofit retrofit;
+
+
     // URL base a la API
-    private final String API_BASE = "http://108.45.32:3001";
+    private final String API_BASE = "http://167.99.99.255:3001/";
 
     private static Petition ourInstance;
 
@@ -40,5 +42,9 @@ public class Petition {
         IPetitions userLogin = retrofit.create(IPetitions.class);
 
         return false;
+    }
+
+    public Retrofit getRetrofit() {
+        return retrofit;
     }
 }

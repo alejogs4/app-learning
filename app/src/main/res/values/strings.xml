@@ -31,5 +31,7 @@
     <string name="label_form_password">Contraseña...</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="signup_lastname">Apellido</string>
+    <string name="grado_universitario">Grado universitario</string>
 
 </resources>
