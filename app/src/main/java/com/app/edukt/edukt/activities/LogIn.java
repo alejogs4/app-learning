@@ -18,7 +18,7 @@ public class LogIn extends AppCompatActivity {
         connect();
     }
 
-    
+
     private void connect() {
 
     }
