@@ -14,6 +14,7 @@ import android.widget.Toolbar;
 import com.app.edukt.edukt.R;
 import com.app.edukt.edukt.petitions.Petition;
 import com.app.edukt.edukt.pojos.Student;
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class SignUp extends AppCompatActivity {
     private EditText dni;
     private EditText name;
     private EditText lastname;
-    private EditText degree;
+    private MaterialBetterSpinner degree;
     private EditText birthday;
     private EditText email;
     private EditText password;
@@ -60,7 +61,7 @@ public class SignUp extends AppCompatActivity {
         dni = findViewById(R.id.et_signup_dni);
         name = findViewById(R.id.et_signup_fullname);
         lastname = findViewById(R.id.et_signup_lastname);
-        degree = findViewById(R.id.et_signup_degree);
+        degree = findViewById(R.id.sp_signup);
         birthday = findViewById(R.id.et_signup_birthdate);
         email = findViewById(R.id.et_signup_email);
         password = findViewById(R.id.et_signup_password);
@@ -71,6 +72,8 @@ public class SignUp extends AppCompatActivity {
 
     }
 
+    //TODO: Configurar la opcion de escolaridad con un spinner
+
     private void signup() {
         Student student = new Student(
                 dni.getText().toString(),
@@ -78,13 +81,13 @@ public class SignUp extends AppCompatActivity {
                 lastname.getText().toString(),
                 birthday.getText().toString() + " 00:00:00",
                 email.getText().toString(),
-                degree.getText().toString()
+                "s"
         );
         retrofit2.Call<Student> studentService = student.add(password.getText().toString());
         studentService.enqueue(new Callback<Student>() {
             @Override
             public void onResponse(retrofit2.Call<Student> call, Response<Student> response) {
-                Toast.makeText(getApplicationContext(), "El usuario " + response.body().getName(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.signup_msg + response.body().getName(), Toast.LENGTH_LONG).show();
             }
 
             @Override

@@ -18,6 +18,8 @@
 
     <string name="toolbar_text">EduKT</string>
 
+    <string name="signup_msg">Registro exitoso</string>
+
     <string name="login_msg">Inicia Sesión</string>
 
     <string name="user_email_login">Ingresa tu email...</string>
@@ -25,13 +27,20 @@
     <string name="login_button">INICIAR SESIÓN</string>
 
     <string name="label_form_dni">Dni...</string>
-    <string name="label_form_fullname">Nombre completo...</string>
+    <string name="label_form_name">Nombre completo...</string>
+    <string name="label_form_lastname">Apellido...</string>
     <string name="label_form_birthdate">Fecha de nacimiento...</string>
     <string name="label_form_email">Correo electrónico...</string>
     <string name="label_form_password">Contraseña...</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
-    <string name="signup_lastname">Apellido</string>
-    <string name="grado_universitario">Grado universitario</string>
+
+    <!--spinner elements-->
+    <string name="sp_signup_hint">Grado de escolaridad...</string>
+    <string name="sp_signup_1">Primaria</string>
+    <string name="sp_signup_2">Bachillerato</string>
+    <string name="sp_signup_3">Universitario</string>
+    <string name="sp_signup_4">Técnica</string>
+    <string name="sp_signup_5">Tecnología</string>
 
 </resources>

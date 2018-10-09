@@ -19,8 +19,8 @@
         </activity>
         <activity
             android:name=".activities.SignUp"
-            android:windowSoftInputMode="adjustNothing" />
-        <activity android:name=".activities.LogIn" />
+             />
+        <activity android:name=".activities.LogIn"/>
 
     </application>
 
