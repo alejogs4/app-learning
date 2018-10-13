@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
     //Components
     private Button btnImTeacher;
     private Button btnImStudent;
-    private Petition petition = Petition.getInstance();
 
     //Variables
     public static String userType;

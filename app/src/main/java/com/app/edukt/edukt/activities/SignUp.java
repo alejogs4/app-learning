@@ -1,10 +1,13 @@
 package com.app.edukt.edukt.activities;
 
+import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telecom.Call;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,6 +24,8 @@ import java.util.List;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.graphics.Color.GRAY;
+
 public class SignUp extends AppCompatActivity {
 
     //Components
@@ -29,13 +34,13 @@ public class SignUp extends AppCompatActivity {
     private EditText dni;
     private EditText name;
     private EditText lastname;
-    private MaterialBetterSpinner degree;
+    private MaterialBetterSpinner spGrade;
     private EditText birthday;
     private EditText email;
     private EditText password;
-
     private Button signupButton;
     //Variables
+    static String grade;
 
 
     @Override
@@ -61,18 +66,47 @@ public class SignUp extends AppCompatActivity {
         dni = findViewById(R.id.et_signup_dni);
         name = findViewById(R.id.et_signup_fullname);
         lastname = findViewById(R.id.et_signup_lastname);
-        degree = findViewById(R.id.sp_signup);
+        spGrade = findViewById(R.id.sp_grade);
         birthday = findViewById(R.id.et_signup_birthdate);
         email = findViewById(R.id.et_signup_email);
         password = findViewById(R.id.et_signup_password);
         signupButton = findViewById(R.id.e_signup_signup);
-
         tvUserType = findViewById(R.id.tv_user_type);
         tvUserType.setText(MainActivity.userType);
 
+        configureTheSpinner();
     }
 
-    //TODO: Configurar la opcion de escolaridad con un spinner
+    /**
+     * Configura el spinner y su visibilidad segun el tipo de usuario
+     */
+    private void configureTheSpinner() {
+        //fills the spinner
+        spGrade.setAdapter(new ArrayAdapter<>(this,
+                 android.R.layout.simple_dropdown_item_1line,
+                 getResources().getStringArray(R.array.sp_elements)));
+        //set colors
+        spGrade.setHintTextColor(GRAY);
+        spGrade.setTextColor(getResources().getColor(R.color.colorAccent));
+        spGrade.setFloatingLabelTextColor(getResources().getColor(R.color.colorAccent));
+
+        //verify the type
+        if (MainActivity.userType.equals("Bienvenido Profesor"))
+            spGrade.setVisibility(View.INVISIBLE);
+        else
+            spGrade.setVisibility(View.VISIBLE);
+
+        //TODO: Obtener el grado de escolaridad seleccionado
+        //get the item selected
+        spGrade.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
+    }
+
+    //TODO: configurar el grado de escolaridad
 
     private void signup() {
         Student student = new Student(
@@ -83,6 +117,7 @@ public class SignUp extends AppCompatActivity {
                 email.getText().toString(),
                 "s"
         );
+
         retrofit2.Call<Student> studentService = student.add(password.getText().toString());
         studentService.enqueue(new Callback<Student>() {
             @Override
