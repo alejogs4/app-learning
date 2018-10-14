@@ -1,6 +1,7 @@
 package com.app.edukt.edukt.activities;
 
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.Toolbar;
 import com.app.edukt.edukt.R;
 import com.app.edukt.edukt.petitions.Petition;
 import com.app.edukt.edukt.pojos.Student;
+import com.app.edukt.edukt.pojos.Teacher;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.util.List;
@@ -30,7 +32,6 @@ public class SignUp extends AppCompatActivity {
 
     //Components
     private TextView tvUserType;
-
     private EditText dni;
     private EditText name;
     private EditText lastname;
@@ -41,7 +42,7 @@ public class SignUp extends AppCompatActivity {
     private Button signupButton;
     //Variables
     static String grade;
-
+    private int type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +54,13 @@ public class SignUp extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (spGrade == null)
+                    Toast.makeText(getApplicationContext(), "Seleccione grado de escolaridad", Toast.LENGTH_SHORT).show();
                 if(thereAreNotFieldsEmpty()) {
                     Toast.makeText(getApplicationContext(), "Todos los campos deben estar vacios", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                signup();
+                signup(type);
             }
         });
     }
@@ -91,10 +94,14 @@ public class SignUp extends AppCompatActivity {
         spGrade.setFloatingLabelTextColor(getResources().getColor(R.color.colorAccent));
 
         //verify the type
-        if (MainActivity.userType.equals("Bienvenido Profesor"))
+        if (MainActivity.userType.equals("Bienvenido Profesor")) {
             spGrade.setVisibility(View.INVISIBLE);
-        else
+            type = 1;
+        }
+        else {
             spGrade.setVisibility(View.VISIBLE);
+            type = 0;
+        }
 
         //TODO: Obtener el grado de escolaridad seleccionado
         //get the item selected
@@ -102,22 +109,62 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                if (i != 0)
+                    grade = getResources().getStringArray(R.array.sp_elements)[i];
+                else
+                    grade = null;
             }
         });
     }
 
-    //TODO: configurar el grado de escolaridad
 
-    private void signup() {
+    /**
+     * Determina que tipo de usuario se registra
+     * @param type Entero que representa el tipo de usuario, 1 para profesor 0 para estudiante.
+     */
+    private void signup(int type) {
+        if (type == 1)  signupTeacher();
+        else signupStudent();
+    }
+
+    /**
+     * Registra un profesor
+     */
+    private void signupTeacher() {
+        Teacher teacher = new Teacher(
+                dni.getText().toString(),
+                name.getText().toString(),
+                lastname.getText().toString(),
+                birthday.getText().toString() + " 00:00:00",
+                email.getText().toString()
+        );
+
+        retrofit2.Call<Teacher> teacherService = teacher.add(password.getText().toString());
+        teacherService.enqueue(new Callback<Teacher>() {
+            @Override
+            public void onResponse(retrofit2.Call<Teacher> call, Response<Teacher> response) {
+                Toast.makeText(getApplicationContext(), R.string.signup_msg + response.body().getName(), Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(retrofit2.Call<Teacher> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    /**
+     * Registra un estudiante
+     */
+    private void signupStudent() {
         Student student = new Student(
                 dni.getText().toString(),
                 name.getText().toString(),
                 lastname.getText().toString(),
                 birthday.getText().toString() + " 00:00:00",
                 email.getText().toString(),
-                "s"
+                grade
         );
-
         retrofit2.Call<Student> studentService = student.add(password.getText().toString());
         studentService.enqueue(new Callback<Student>() {
             @Override
