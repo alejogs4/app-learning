@@ -12,7 +12,7 @@ public class Teacher {
     private String birthdate;
     private String email;
 
-    public Teacher(String name, String lastname, String dni_teacher, String birthdate, String email) {
+    public Teacher(String dni_teacher, String name, String lastname, String birthdate, String email) {
         this.name = name;
         this.lastname = lastname;
         this.dni_teacher = dni_teacher;
@@ -67,7 +67,6 @@ public class Teacher {
                 dni_teacher,
                 name,
                 lastname,
-                "s",
                 birthdate,
                 email,
                 password
