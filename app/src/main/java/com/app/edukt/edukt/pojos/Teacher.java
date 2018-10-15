@@ -74,10 +74,10 @@ public class Teacher {
         return  teachers;
     }
 
-    public Call<Teacher> get(String email) {
+    public Call<Teacher> login(String password) {
         Petition petition = Petition.getInstance();
         IPetitions petitions = petition.getRetrofit().create(IPetitions.class);
-        final Call<Teacher> teacherCall = petitions.getTeachers();
-        return teacherCall;
+        final Call<Teacher> teacher = petitions.loginTeacher(email, password);
+        return  teacher;
     }
 }

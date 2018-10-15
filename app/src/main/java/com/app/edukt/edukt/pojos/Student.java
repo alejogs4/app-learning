@@ -79,4 +79,11 @@ public class Student {
         return  students;
     }
 
+    public Call<Student> login(String password) {
+        Petition petition = Petition.getInstance();
+        IPetitions petitions = petition.getRetrofit().create(IPetitions.class);
+        final Call<Student> students = petitions.loginStudent(email, password);
+        return  students;
+    }
+
 }

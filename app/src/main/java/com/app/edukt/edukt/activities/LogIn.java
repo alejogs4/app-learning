@@ -11,6 +11,7 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.app.edukt.edukt.R;
+import com.app.edukt.edukt.pojos.Student;
 
 public class LogIn extends AppCompatActivity {
 
@@ -34,15 +35,13 @@ public class LogIn extends AppCompatActivity {
     }
 
 
+    //TODO: Verificar el usuario y implementar el incio de sesion
     /**
      * Se encarga de hacer el login
      * @param v Vista que llama al método
      */
     public void login(View v) {
         if (!(etEmail.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty())) {
-            //SE HACE LA VERIFICACIÓN
-
-            //Se cambia de imagen
             imgPassword.setImageDrawable(getResources()
                     .getDrawable(R.drawable.checked_password_icon, getTheme()));
         }

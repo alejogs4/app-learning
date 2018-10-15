@@ -32,18 +32,6 @@ public class Petition {
         return ourInstance;
     }
 
-    /**
-     * Verifica si el usuario ingresado existe en la base de datos como estudiante
-     * @param email
-     * @param password
-     * @return
-     */
-    public boolean isRegisteredTheUserAndIsStudent(String email, String password) {
-        IPetitions userLogin = retrofit.create(IPetitions.class);
-
-        return false;
-    }
-
     public Retrofit getRetrofit() {
         return retrofit;
     }
