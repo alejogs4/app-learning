@@ -1,11 +1,7 @@
 package com.app.edukt.edukt.activities;
 
-import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,15 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.app.edukt.edukt.R;
-import com.app.edukt.edukt.petitions.Petition;
 import com.app.edukt.edukt.pojos.Student;
 import com.app.edukt.edukt.pojos.Teacher;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
-
-import java.util.List;
 
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,8 +21,9 @@ import retrofit2.Response;
 import static android.graphics.Color.GRAY;
 
 public class SignUp extends AppCompatActivity {
-
+    ///////////////////////////
     //Components
+    ///////////////////////////
     private TextView tvUserType;
     private EditText dni;
     private EditText name;
@@ -40,7 +33,10 @@ public class SignUp extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Button signupButton;
+
+    ///////////////////////////
     //Variables
+    ///////////////////////////
     static String grade;
     private int type;
 
@@ -49,14 +45,16 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         connect();
+        onClickButton();
+    }
 
-        // Eventos
+    private void onClickButton() {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (spGrade == null)
                     Toast.makeText(getApplicationContext(), "Seleccione grado de escolaridad", Toast.LENGTH_SHORT).show();
-                if(thereAreNotFieldsEmpty()) {
+                if(fieldsEmpty()) {
                     Toast.makeText(getApplicationContext(), "Todos los campos deben estar vacios", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -103,7 +101,6 @@ public class SignUp extends AppCompatActivity {
             type = 0;
         }
 
-        //TODO: Obtener el grado de escolaridad seleccionado
         //get the item selected
         spGrade.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -183,7 +180,7 @@ public class SignUp extends AppCompatActivity {
      * Verifica si los campos estan vacios
      * @return
      */
-    private boolean thereAreNotFieldsEmpty() {
+    private boolean fieldsEmpty() {
         return dni.getText().toString().isEmpty() ||
                name.getText().toString().isEmpty() ||
                lastname.getText().toString().isEmpty() ||
@@ -192,10 +189,5 @@ public class SignUp extends AppCompatActivity {
                password.getText().toString().isEmpty();
     }
 
-    //TODO: Configurar el cambio de titulo del toolbar
-    public void setToolbar() {
-        android.support.v7.widget.Toolbar a = findViewById(R.id.app_toolbar);
-        a.setTitle(R.string.signup_toobar_tittle);
-    }
 
 }

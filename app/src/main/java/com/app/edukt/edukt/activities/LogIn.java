@@ -33,8 +33,13 @@ public class LogIn extends AppCompatActivity {
         imgPassword = findViewById(R.id.img_password);
     }
 
+
+    /**
+     * Se encarga de hacer el login
+     * @param v Vista que llama al método
+     */
     public void login(View v) {
-        if (!this.isEmpty()) {
+        if (!(etEmail.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty())) {
             //SE HACE LA VERIFICACIÓN
 
             //Se cambia de imagen
@@ -47,12 +52,9 @@ public class LogIn extends AppCompatActivity {
         }
     }
 
+
     private void cleanFields() {
         etEmail.setText("");
         etPassword.setText("");
-    }
-
-    private boolean isEmpty() {
-        return etEmail.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty();
     }
 }
