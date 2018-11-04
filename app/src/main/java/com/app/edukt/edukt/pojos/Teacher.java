@@ -20,6 +20,10 @@ public class Teacher {
         this.email = email;
     }
 
+    public Teacher(String email) {
+        this.email = email;
+    }
+
     public String getName() {
         return name;
     }

@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/ly_login_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
@@ -35,12 +35,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:visibility="invisible">
 
         <ImageView
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/user_icon" />
+            android:src="@drawable/user_icon"
+            tools:ignore="ContentDescription"/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -59,15 +61,16 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/ly_login_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="@+id/ly_login_email"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintStart_toStartOf="@+id/ly_login_email"
+        app:layout_constraintTop_toBottomOf="@+id/ly_login_email"
+        android:visibility="invisible">
 
         <ImageView
             android:id="@+id/img_password"
@@ -99,11 +102,78 @@
         android:layout_marginTop="40dp"
         android:text="@string/login_button"
         android:textStyle="bold"
+        android:visibility="invisible"
         android:onClick="login"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/ly_login_password"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintStart_toStartOf="@+id/ly_login_password"
+        app:layout_constraintTop_toBottomOf="@+id/ly_login_password" />
+
+    <LinearLayout
+        android:id="@+id/ly_user_teacher"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        android:onClick="defineUserType"
+        android:background="@drawable/button_style1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <ImageView
+            android:layout_marginTop="2.5dp"
+            android:layout_marginBottom="2.5dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/teacher"
+            android:layout_marginStart="25dp"
+            tools:ignore="ContentDescription"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="center_vertical"
+            android:text="@string/btn_login_teacher"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_user_student"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        android:background="@drawable/button_style1"
+        android:onClick="defineUserType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ly_user_teacher">
+
+        <ImageView
+            android:layout_marginTop="2.5dp"
+            android:layout_marginBottom="2.5dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/student"
+            android:layout_marginStart="25dp"
+            tools:ignore="ContentDescription"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="center_vertical"
+            android:text="@string/btn_login_student"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>

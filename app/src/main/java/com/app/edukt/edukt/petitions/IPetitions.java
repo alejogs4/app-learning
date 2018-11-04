@@ -32,12 +32,14 @@ public interface IPetitions {
             @Field("password") String password
     );
 
+    @FormUrlEncoded
     @POST(apiRoute + "teacher/login")
     Call<Teacher> loginTeacher(
             @Field("email") String email,
             @Field("password") String password
     );
 
+    @FormUrlEncoded
     @POST(apiRoute + "student/login")
     Call<Student> loginStudent(
             @Field("email") String email,

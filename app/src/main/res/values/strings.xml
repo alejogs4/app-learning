@@ -38,6 +38,8 @@
 
     <!--spinner elements-->
     <string name="sp_signup_hint">Grado de escolaridad...</string>
+    <string name="btn_login_teacher">Iniciar como profesor</string>
+    <string name="btn_login_student">Iniciar como estudiante</string>
     <string-array name="sp_elements">
         <item>Primaria</item>
         <item>Bachillerato</item>

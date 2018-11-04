@@ -24,6 +24,10 @@ public class Student {
         this.degree = degree;
     }
 
+    public Student(String email) {
+        this.email = email;
+    }
+
     public String getDni_student() {
         return dni_student;
     }
