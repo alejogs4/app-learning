@@ -23,7 +23,6 @@
         <activity android:name=".activities.MainPage" />
         <activity android:name=".activities.Homepage" />
         <activity android:name=".activities.TeacherProfile" />
-        <activity android:name=".activities.TeacherList"></activity>
     </application>
 
 </manifest>

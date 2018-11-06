@@ -2,10 +2,15 @@ package com.app.edukt.edukt.petitions;
 
 import com.app.edukt.edukt.pojos.Student;
 import com.app.edukt.edukt.pojos.Teacher;
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface IPetitions {
     String apiRoute = "api/v1/";
@@ -45,5 +50,8 @@ public interface IPetitions {
             @Field("email") String email,
             @Field("password") String password
     );
+
+    @GET(apiRoute +"teachers/subject/{subject}")
+    Call<List<Teacher>> getTeacherBySubject(@Query("subject") String subject);
 
 }
