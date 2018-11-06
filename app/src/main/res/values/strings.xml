@@ -29,7 +29,7 @@
 
     <!--Form elements-->
     <string name="label_form_dni">Dni...</string>
-    <string name="label_form_name">Nombre completo...</string>
+    <string name="label_form_name">Nombre...</string>
     <string name="label_form_lastname">Apellido...</string>
     <string name="label_form_birthdate">Fecha de nacimiento...</string>
     <string name="label_form_email">Correo electrónico...</string>

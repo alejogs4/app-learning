@@ -141,6 +141,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onResponse(retrofit2.Call<Teacher> call, Response<Teacher> response) {
                 Toast.makeText(getApplicationContext(), R.string.signup_msg + response.body().getName(), Toast.LENGTH_LONG).show();
+                cleanFields();
             }
 
             @Override
@@ -166,7 +167,8 @@ public class SignUp extends AppCompatActivity {
         studentService.enqueue(new Callback<Student>() {
             @Override
             public void onResponse(retrofit2.Call<Student> call, Response<Student> response) {
-                Toast.makeText(getApplicationContext(), R.string.signup_msg + response.body().getName(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.signup_msg + response.body().getName(), Toast.LENGTH_SHORT).show();
+                cleanFields();
             }
 
             @Override
@@ -174,6 +176,15 @@ public class SignUp extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void cleanFields() {
+        dni.setText("");
+        name.setText("");
+        lastname.setText("");
+        birthday.setText("");
+        email.setText("");
+        password.setText("");
     }
 
     /**

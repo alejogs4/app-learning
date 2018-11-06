@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.app.edukt.edukt.R;
 import com.app.edukt.edukt.pojos.Student;
+import com.app.edukt.edukt.pojos.Teacher;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,7 +30,9 @@ public class LogIn extends AppCompatActivity {
     private LinearLayout btnLoginTeacher;
 
     //Variables
-    private byte userType;
+    public static byte userType;
+    public static Student student;
+    public static Teacher teacher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +78,31 @@ public class LogIn extends AppCompatActivity {
 
     //TODO: implementar el login del profesor
     private void loginTeacher() {
-//        Teacher teacher = new Teacher(etEmail.getText().toString());
-//        retrofit2.Call<Teacher> teacherCall = teacher.login()
+        Teacher teacher = new Teacher(etEmail.getText().toString());
+        retrofit2.Call<Teacher> teacherCall = teacher.login(etPassword.getText().toString());
+        teacherCall.enqueue(new Callback<Teacher>() {
+            @Override
+            public void onResponse(Call<Teacher> call, Response<Teacher> response) {
+                asignTeacher(response.body());
+                imgPassword.setImageDrawable(getResources()
+                        .getDrawable(R.drawable.checked_password_icon, getTheme()));
+
+                startActivity(new Intent(getApplicationContext(), MainPage.class));
+            }
+
+            @Override
+            public void onFailure(Call<Teacher> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error al inicio de Sesion",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void asignTeacher(Teacher tch) {
+        teacher = tch;
+    }
+
+    private void asignStudent(Student std) {
+        student = std;
     }
 
 
@@ -86,6 +112,7 @@ public class LogIn extends AppCompatActivity {
         studentCall.enqueue(new Callback<Student>() {
             @Override
             public void onResponse(Call<Student> call, Response<Student> response) {
+                asignStudent(response.body());
                 imgPassword.setImageDrawable(getResources()
                         .getDrawable(R.drawable.checked_password_icon, getTheme()));
 
