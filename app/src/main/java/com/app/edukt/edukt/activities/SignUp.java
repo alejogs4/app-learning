@@ -67,7 +67,7 @@ public class SignUp extends AppCompatActivity {
         dni = findViewById(R.id.et_signup_dni);
         name = findViewById(R.id.et_signup_fullname);
         lastname = findViewById(R.id.et_signup_lastname);
-        spGrade = findViewById(R.id.sp_grade);
+        spGrade = findViewById(R.id.sp_grade_search);
         birthday = findViewById(R.id.et_signup_birthdate);
         email = findViewById(R.id.et_signup_email);
         password = findViewById(R.id.et_signup_password);

@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-        android:id="@+id/sp_grade"
+        android:id="@+id/sp_grade_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -43,6 +43,7 @@
         tools:layout_editor_absoluteY="82dp">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableEnd="@android:drawable/ic_menu_search"
@@ -50,6 +51,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <ListView
+        android:id="@+id/lv_teacher"
         android:layout_width="395dp"
         android:layout_height="443dp"
         android:layout_marginStart="8dp"
@@ -57,6 +59,6 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_grade" />
+        app:layout_constraintTop_toBottomOf="@+id/sp_grade_search" />
 
 </android.support.constraint.ConstraintLayout>
