@@ -121,7 +121,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-            android:id="@+id/sp_grade"
+            android:id="@+id/sp_grade_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/sp_signup_hint"

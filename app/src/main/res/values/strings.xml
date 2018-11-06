@@ -6,7 +6,7 @@
 
     <string name="login_toobar_tittle" translatable="true">Inicio de Sesión</string>
 
-    <string name="welcome_msg1">BIENVENIDO</string>
+    <string name="welcome_msg1">¡BIENVENIDO!</string>
 
     <string name="welcome_msg2">¿Eres nuevo? Regístrate</string>
 
