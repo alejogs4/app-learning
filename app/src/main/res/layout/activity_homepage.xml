@@ -29,13 +29,32 @@
 
     <ListView
         android:id="@+id/lv_teacher"
+<<<<<<< HEAD
+=======
+
+>>>>>>> bd229f2c3db3cf62f0d269f6b8fd9483f37130dd
         android:layout_width="match_parent"
         android:layout_height="514dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sp_subjects" />
 
+<<<<<<< HEAD
+=======
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+
+>>>>>>> bd229f2c3db3cf62f0d269f6b8fd9483f37130dd
 </android.support.constraint.ConstraintLayout>

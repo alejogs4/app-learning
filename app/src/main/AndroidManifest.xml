@@ -24,7 +24,8 @@
         <activity android:name=".activities.Homepage" />
         <activity android:name=".activities.TeacherProfile" />
         <activity android:name=".activities.AdvisoryManager" />
-        <activity android:name=".activities.TeacherSettings"></activity>
+        <activity android:name=".activities.TeacherSettings" />
+        <activity android:name=".activities.Articles"></activity>
     </application>
 
 </manifest>
