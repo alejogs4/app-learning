@@ -13,43 +13,30 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/textInputLayout"
+    <Spinner
+        android:id="@+id/sp_subjects"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include2">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/et_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableEnd="@android:drawable/ic_menu_search"
-            android:hint="Buscar profesor" />
-    </android.support.design.widget.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/include2">
+    </Spinner>
 
     <ListView
         android:id="@+id/lv_teacher"
-        android:layout_width="395dp"
-        android:layout_height="443dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="514dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
-=======
-        app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="parent" />
->>>>>>> d7074a5c0abf79fb0f76b3403273937e6c464e51
+        app:layout_constraintTop_toBottomOf="@+id/sp_subjects" />
+
 
 </android.support.constraint.ConstraintLayout>

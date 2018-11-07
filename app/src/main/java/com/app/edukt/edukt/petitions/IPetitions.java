@@ -1,6 +1,7 @@
 package com.app.edukt.edukt.petitions;
 
 import com.app.edukt.edukt.pojos.Student;
+import com.app.edukt.edukt.pojos.Subject;
 import com.app.edukt.edukt.pojos.Teacher;
 
 import java.util.List;
@@ -51,7 +52,11 @@ public interface IPetitions {
             @Field("password") String password
     );
 
-    @GET(apiRoute +"teachers/subject/{subject}")
+    @GET(apiRoute + "teachers/subject/{subject}")
     Call<List<Teacher>> getTeacherBySubject(@Query("subject") String subject);
+
+    @GET(apiRoute + "teacher/subjects")
+    Call<List<Subject>> getSubjects();
+
 
 }

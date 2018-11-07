@@ -1,5 +1,7 @@
 package com.app.edukt.edukt.activities;
 
+import android.content.Intent;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -13,6 +15,8 @@ public class MainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
         welcomeMessage();
+        SystemClock.sleep(5000);
+        startActivity(new Intent(getApplicationContext(), Homepage.class));
     }
 
     private void welcomeMessage() {
