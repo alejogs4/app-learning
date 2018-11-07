@@ -4,13 +4,10 @@ import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.widget.ListView;
 
-=======
 
 import retrofit2.Call;
->>>>>>> d7074a5c0abf79fb0f76b3403273937e6c464e51
 import retrofit2.Callback;
 import retrofit2.Response;
 
@@ -19,11 +16,8 @@ import com.app.edukt.edukt.petitions.IPetitions;
 import com.app.edukt.edukt.petitions.Petition;
 import com.app.edukt.edukt.pojos.Teacher;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
 import java.util.List;
->>>>>>> d7074a5c0abf79fb0f76b3403273937e6c464e51
 
 
 public class Homepage extends AppCompatActivity {
@@ -38,11 +32,9 @@ public class Homepage extends AppCompatActivity {
         connect();
     }
 
-<<<<<<< HEAD
     private void connect(){
         lv_teacher = findViewById(R.id.lv_teacher);
         et_search = findViewById(R.id.et_search);
-=======
     }
 
     private void getTeacherList(String subject) {
@@ -60,6 +52,5 @@ public class Homepage extends AppCompatActivity {
 
             }
         });
->>>>>>> d7074a5c0abf79fb0f76b3403273937e6c464e51
     }
 }
