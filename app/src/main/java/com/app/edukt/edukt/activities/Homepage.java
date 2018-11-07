@@ -3,12 +3,18 @@ package com.app.edukt.edukt.activities;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
+=======
+import android.widget.ListView;
+
+
+>>>>>>> 4934bf228b190b708df418caa8ae08727a25a8f1
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -17,9 +23,15 @@ import com.app.edukt.edukt.petitions.IPetitions;
 import com.app.edukt.edukt.petitions.Petition;
 import com.app.edukt.edukt.pojos.Subject;
 import com.app.edukt.edukt.pojos.Teacher;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
+=======
+
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> 4934bf228b190b708df418caa8ae08727a25a8f1
 
 
 public class Homepage extends AppCompatActivity {
@@ -38,6 +50,7 @@ public class Homepage extends AppCompatActivity {
         getSubjects();
     }
 
+<<<<<<< HEAD
 
     private void connect(){
         lvTeacher = findViewById(R.id.lv_teacher);
@@ -80,6 +93,11 @@ public class Homepage extends AppCompatActivity {
                 getTeacherList(list.get(position).getName());
             }
         });
+=======
+    private void connect(){
+        lv_teacher = findViewById(R.id.lv_teacher);
+        et_search = findViewById(R.id.et_search);
+>>>>>>> 4934bf228b190b708df418caa8ae08727a25a8f1
     }
 
     private void getTeacherList(String subject) {
@@ -98,6 +116,7 @@ public class Homepage extends AppCompatActivity {
                 Toast.makeText(Homepage.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+<<<<<<< HEAD
 
     }
 
@@ -107,5 +126,7 @@ public class Homepage extends AppCompatActivity {
         }
         lvTeacher.setAdapter( new ArrayAdapter<>(getApplicationContext(),
                                 android.R.layout.simple_list_item_2,listTeacher));
+=======
+>>>>>>> 4934bf228b190b708df418caa8ae08727a25a8f1
     }
 }
