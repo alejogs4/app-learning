@@ -8,6 +8,44 @@
     android:background="@drawable/background_inicio"
     tools:context=".activities.MainPage">
 
+    <Button
+        android:id="@+id/btn_list_teachers"
+        android:layout_width="276dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="236dp"
+        android:background="@drawable/button_style1"
+        android:text="Buscar profesores por MAteria"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_articles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Ir a articulos"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="@+id/btn_list_teachers"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/btn_list_teachers"
+        app:layout_constraintTop_toBottomOf="@+id/btn_list_teachers" />
+
+    <TextView
+        android:id="@+id/tv_welcome_std"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:textSize="30dp"
+        android:background="@drawable/gradient_background"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#fff"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

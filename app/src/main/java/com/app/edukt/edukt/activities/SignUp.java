@@ -167,7 +167,8 @@ public class SignUp extends AppCompatActivity {
         studentService.enqueue(new Callback<Student>() {
             @Override
             public void onResponse(retrofit2.Call<Student> call, Response<Student> response) {
-                Toast.makeText(getApplicationContext(), R.string.signup_msg + response.body().getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.signup_msg) + " " +
+                                response.body().getName(), Toast.LENGTH_SHORT).show();
                 cleanFields();
             }
 

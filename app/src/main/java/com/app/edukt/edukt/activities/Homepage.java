@@ -3,18 +3,12 @@ package com.app.edukt.edukt.activities;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
-=======
-import android.widget.ListView;
-
-
->>>>>>> 4934bf228b190b708df418caa8ae08727a25a8f1
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,15 +17,9 @@ import com.app.edukt.edukt.petitions.IPetitions;
 import com.app.edukt.edukt.petitions.Petition;
 import com.app.edukt.edukt.pojos.Subject;
 import com.app.edukt.edukt.pojos.Teacher;
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
-=======
-
-import java.util.ArrayList;
-import java.util.List;
->>>>>>> 4934bf228b190b708df418caa8ae08727a25a8f1
 
 
 public class Homepage extends AppCompatActivity {
@@ -40,7 +28,7 @@ public class Homepage extends AppCompatActivity {
     private Spinner spSubjects;
 
     public static Teacher selectedTeacher;
-    private List<String> listTeacher;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +38,11 @@ public class Homepage extends AppCompatActivity {
         getSubjects();
     }
 
-<<<<<<< HEAD
 
-    private void connect(){
+    private void connect() {
         lvTeacher = findViewById(R.id.lv_teacher);
         spSubjects = findViewById(R.id.sp_subjects);
 
-        listTeacher = new ArrayList<>();
     }
 
     private void getSubjects() {
@@ -71,62 +57,71 @@ public class Homepage extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Subject>> call, Throwable t) {
-                Toast.makeText(Homepage.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Homepage.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void setSpinnerAdapter(@NonNull List<Subject> list) {
         List<String> subjects = new ArrayList<>();
-        for (Subject s: list) {
-            subjects.add(s.getName() + "-" + s.getLevel());
+        for (Subject s : list) {
+            subjects.add(s.getName() + " - " + s.getLevel());
         }
-        spSubjects.setAdapter(new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_2
-                                , subjects));
+        spSubjects.setAdapter(new ArrayAdapter<>(getApplicationContext(), R.layout.list_style
+                , subjects));
         onSelectedSpinner(list);
     }
 
     private void onSelectedSpinner(final List<Subject> list) {
-        spSubjects.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        spSubjects.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                lvTeacher.clearChoices();
                 getTeacherList(list.get(position).getName());
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
-=======
-    private void connect(){
-        lv_teacher = findViewById(R.id.lv_teacher);
-        et_search = findViewById(R.id.et_search);
->>>>>>> 4934bf228b190b708df418caa8ae08727a25a8f1
     }
 
-    private void getTeacherList(String subject) {
+
+    private void getTeacherList (String subject){
         Petition petitions = Petition.getInstance();
         IPetitions iPetitions = petitions.getRetrofit().create(IPetitions.class);
         final Call<List<Teacher>> teachersCall = iPetitions.getTeacherBySubject(subject);
         teachersCall.enqueue(new Callback<List<Teacher>>() {
             @Override
             public void onResponse(Call<List<Teacher>> call, Response<List<Teacher>> response) {
-                setListAdapter(response.body());
-                Toast.makeText(Homepage.this, "Nice!", Toast.LENGTH_SHORT).show();
+                if (response.body().isEmpty())
+                    Toast.makeText(Homepage.this, "Sin profesores", Toast.LENGTH_SHORT).show();
+                else {
+                    setListAdapter(response.body());
+                }
             }
 
             @Override
             public void onFailure(Call<List<Teacher>> call, Throwable t) {
-                Toast.makeText(Homepage.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Homepage.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-<<<<<<< HEAD
+
 
     }
 
-    private void setListAdapter(@NonNull List<Teacher> list) {
-        for (Teacher t: list) {
-            listTeacher.add(t.getName()+" "+t.getLastname());
+    private void setListAdapter (@NonNull List <Teacher> list) {
+        List<String> listTeacher = new ArrayList<>();
+        for (Teacher t : list) {
+            if (t == null)
+                return;
+            else
+            listTeacher.add(t.getName() + " " + t.getLastname());
         }
-        lvTeacher.setAdapter( new ArrayAdapter<>(getApplicationContext(),
-                                android.R.layout.simple_list_item_2,listTeacher));
-=======
->>>>>>> 4934bf228b190b708df418caa8ae08727a25a8f1
+        lvTeacher.setAdapter(new ArrayAdapter<>(getApplicationContext(),
+                R.layout.list_style, listTeacher));
+
+
     }
 }

@@ -76,18 +76,21 @@ public class LogIn extends AppCompatActivity {
     }
 
 
-    //TODO: implementar el login del profesor
     private void loginTeacher() {
         Teacher teacher = new Teacher(etEmail.getText().toString());
         retrofit2.Call<Teacher> teacherCall = teacher.login(etPassword.getText().toString());
         teacherCall.enqueue(new Callback<Teacher>() {
             @Override
             public void onResponse(Call<Teacher> call, Response<Teacher> response) {
-                asignTeacher(response.body());
-                imgPassword.setImageDrawable(getResources()
-                        .getDrawable(R.drawable.checked_password_icon, getTheme()));
+                if (response.body() == null)
+                    Toast.makeText(LogIn.this, "RRr", Toast.LENGTH_SHORT).show();
+                else {
+                    asignTeacher(response.body());
+                    imgPassword.setImageDrawable(getResources()
+                            .getDrawable(R.drawable.checked_password_icon, getTheme()));
 
-                startActivity(new Intent(getApplicationContext(), MainPage.class));
+                    startActivity(new Intent(getApplicationContext(), TeacherSettings.class));
+                }
             }
 
             @Override
@@ -112,16 +115,20 @@ public class LogIn extends AppCompatActivity {
         studentCall.enqueue(new Callback<Student>() {
             @Override
             public void onResponse(Call<Student> call, Response<Student> response) {
-                asignStudent(response.body());
-                imgPassword.setImageDrawable(getResources()
-                        .getDrawable(R.drawable.checked_password_icon, getTheme()));
+                if (response.body() == null)
+                    Toast.makeText(LogIn.this, "RrR", Toast.LENGTH_SHORT).show();
+                else {
+                    asignStudent(response.body());
+                    imgPassword.setImageDrawable(getResources()
+                            .getDrawable(R.drawable.checked_password_icon, getTheme()));
 
-                startActivity(new Intent(getApplicationContext(), MainPage.class));
+                    startActivity(new Intent(getApplicationContext(), MainPage.class));
+                }
             }
 
             @Override
             public void onFailure(Call<Student> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error al inicio de Sesion",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Error al inicio de Sesión",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -131,7 +138,6 @@ public class LogIn extends AppCompatActivity {
         findViewById(R.id.ly_login_email).setVisibility(View.VISIBLE);
         findViewById(R.id.ly_login_password).setVisibility(View.VISIBLE);
         btnLogin.setVisibility(View.VISIBLE);
-
         btnLoginTeacher.setVisibility(View.INVISIBLE);
         btnLoginStudent.setVisibility(View.INVISIBLE);
     }

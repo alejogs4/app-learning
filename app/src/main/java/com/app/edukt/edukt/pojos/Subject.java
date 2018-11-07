@@ -1,8 +1,15 @@
 package com.app.edukt.edukt.pojos;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Subject {
+    @SerializedName("id_subject")
     private int id_subject;
+
+    @SerializedName("name")
     private String name;
+
+    @SerializedName("level")
     private String level;
 
     public Subject(int id_subject, String name, String level) {

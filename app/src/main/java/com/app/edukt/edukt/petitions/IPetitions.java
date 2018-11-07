@@ -2,6 +2,7 @@ package com.app.edukt.edukt.petitions;
 
 import com.app.edukt.edukt.pojos.Student;
 import com.app.edukt.edukt.pojos.Subject;
+import com.app.edukt.edukt.pojos.SubjectTeacher;
 import com.app.edukt.edukt.pojos.Teacher;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface IPetitions {
@@ -53,10 +55,16 @@ public interface IPetitions {
     );
 
     @GET(apiRoute + "teachers/subject/{subject}")
-    Call<List<Teacher>> getTeacherBySubject(@Query("subject") String subject);
+    Call<List<Teacher>> getTeacherBySubject(@Path("subject") String subject);
 
-    @GET(apiRoute + "teacher/subjects")
+    @GET(apiRoute + "teachers/subjects")
     Call<List<Subject>> getSubjects();
 
+    @FormUrlEncoded
+    @POST(apiRoute + "teacher/subject")
+    Call<SubjectTeacher> setTeacherSubject(
+            @Field("dni_teacher") String dni_teacher,
+            @Field("id_subject") int id_subject
+    );
 
 }
