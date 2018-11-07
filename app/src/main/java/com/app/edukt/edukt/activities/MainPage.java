@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.edukt.edukt.R;
+import com.app.edukt.edukt.pojos.Article;
 
 public class MainPage extends AppCompatActivity {
 
@@ -20,6 +21,12 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), Homepage.class));
+            }
+        });
+        findViewById(R.id.btn_articles).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Articles.class));
             }
         });
     }

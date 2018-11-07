@@ -1,5 +1,6 @@
 package com.app.edukt.edukt.activities;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,16 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.app.edukt.edukt.R;
 import com.app.edukt.edukt.petitions.IPetitions;
 import com.app.edukt.edukt.petitions.Petition;
 import com.app.edukt.edukt.pojos.Subject;
 import com.app.edukt.edukt.pojos.SubjectTeacher;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -60,7 +58,7 @@ public class TeacherSettings extends AppCompatActivity {
         });
     }
 
-    private void setSubjectTeacher(String dniTeacher) {
+    private void setSubjectTeacher(@NonNull String dniTeacher) {
         final Call<SubjectTeacher> stCall;
         if (dniTeacher.isEmpty())
             Toast.makeText(this, "Ingrese su dni", Toast.LENGTH_SHORT).show();
@@ -109,7 +107,7 @@ public class TeacherSettings extends AppCompatActivity {
         });
     }
 
-    private void setAdapter(List<Subject> list) {
+    private void setAdapter(@NonNull List<Subject> list) {
         subjectsList = list;
         List<String> subjects = new ArrayList<>();
         for (Subject s: list) {

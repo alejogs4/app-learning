@@ -1,5 +1,6 @@
 package com.app.edukt.edukt.petitions;
 
+import com.app.edukt.edukt.pojos.Article;
 import com.app.edukt.edukt.pojos.Student;
 import com.app.edukt.edukt.pojos.Subject;
 import com.app.edukt.edukt.pojos.SubjectTeacher;
@@ -66,5 +67,8 @@ public interface IPetitions {
             @Field("dni_teacher") String dni_teacher,
             @Field("id_subject") int id_subject
     );
+
+    @GET(apiRoute + "articles")
+    Call<List<Article>> getArticles();
 
 }
